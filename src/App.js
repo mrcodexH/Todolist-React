@@ -28,6 +28,20 @@ function App() {
       : (newTodoItems[index].complete = false);
     setTodoItems(newTodoItems);
   };
+  // update the todo item
+  const updateTodoItem = (index) => {
+    const newTodoItems = [...TodoItems];
+    const item = newTodoItems[index];
+    let newItem = prompt(`Update ${item.todo} to: `, item.todo);
+    let todoObj = { todo: newItem, complete: false };
+    newTodoItems.splice(index, 1, todoObj);
+    if (newItem === null || newItem === "") {
+      return;
+    } else {
+      item.todo = newItem;
+    }
+    setTodoItems(newTodoItems);
+  };
   return (
     <div className="App">
       <TodoInput createTodoItem={createTodoItem} />
@@ -38,6 +52,7 @@ function App() {
           item={item}
           deleteTodoItem={deleteTodoItem}
           completeTodoItem={completeTodoItem}
+          updateTodoItem={updateTodoItem}
         />
       ))}
     </div>

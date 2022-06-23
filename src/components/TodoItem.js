@@ -1,6 +1,12 @@
 import React from "react";
 
-const TodoItem = ({ item, index, deleteTodoItem, completeTodoItem }) => {
+const TodoItem = ({
+  item,
+  index,
+  deleteTodoItem,
+  completeTodoItem,
+  updateTodoItem,
+}) => {
   return (
     <div className="todo-list">
       <li style={{ textDecoration: item.complete ? "line-through" : "" }}>
@@ -8,6 +14,7 @@ const TodoItem = ({ item, index, deleteTodoItem, completeTodoItem }) => {
       </li>
       <div className="btns">
         <button onClick={() => completeTodoItem(index)}>Complete</button>
+        <button onClick={() => updateTodoItem(index)}>Update</button>
         <button onClick={() => deleteTodoItem(index)}>Delete</button>
       </div>
     </div>
