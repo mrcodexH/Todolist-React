@@ -20,6 +20,14 @@ function App() {
     newTodoItems.splice(index, 1);
     setTodoItems(newTodoItems);
   };
+  // complete the todo item
+  const completeTodoItem = (index) => {
+    const newTodoItems = [...TodoItems];
+    newTodoItems[index].complete === false
+      ? (newTodoItems[index].complete = true)
+      : (newTodoItems[index].complete = false);
+    setTodoItems(newTodoItems);
+  };
   return (
     <div className="App">
       <TodoInput createTodoItem={createTodoItem} />
@@ -29,6 +37,7 @@ function App() {
           index={index}
           item={item}
           deleteTodoItem={deleteTodoItem}
+          completeTodoItem={completeTodoItem}
         />
       ))}
     </div>
