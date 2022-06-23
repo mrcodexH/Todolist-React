@@ -9,9 +9,13 @@ function App() {
     { todo: "Do laundry", complete: false },
     { todo: "Make Dinner", complete: false },
   ]);
+  const createTodoItem = (todo) => {
+    const newTodoItems = [...TodoItems, { todo, complete: false }];
+    setTodoItems(newTodoItems);
+  };
   return (
     <div className="App">
-      <TodoInput />
+      <TodoInput createTodoItem={createTodoItem} />
       {TodoItems.map((item, index) => (
         <TodoItem key={index} index={index} item={item} />
       ))}
