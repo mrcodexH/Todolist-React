@@ -43,7 +43,7 @@ function App() {
     setTodoItems(newTodoItems);
   };
   return (
-    <div className="App">
+    <div className="app">
       <TodoInput createTodoItem={createTodoItem} />
       {TodoItems.map((item, index) => (
         <TodoItem
